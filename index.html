@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation - Home</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('https://img.freepik.com/free-photo/top-view-frame-with-food-copy-space_23-2148247893.jpg?semt=ais_hybrid') no-repeat center center/cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    /* color: white; */
+    border-radius: 5px;
+    background-color: #28a745;
+}
+
+button:first-child {
+    background-color: #28a745; 
+}
+
+button:last-child {
+    background-color: #007bff; 
+}
+
+button:hover {
+    opacity: 0.8;
+}
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <div class="container">
+        <h1>Welcome to Food Donation</h1>
+        <p>Are you a Donor or a Receiver?</p>
+        <div class="buttons">
+            <button onclick="redirectTo('donor')">I am a Donor</button>
+            <button onclick="redirectTo('receiver')">I am a Receiver</button><br><br>
+            <button onclick="window.location.href='login.html'">Login</button>
+        </div>
+    </div>
+    <script>
+function redirectTo(userType) {
+    if (userType === 'donor') {
+        window.location.href = "signup.html?type=donor";
+    } else {
+        window.location.href = "signup.html?type=receiver";
+    }
+}
+    </script>
+</body>
+</html>

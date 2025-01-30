@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation - Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="form-container" id="loginForm">
+            <h2>Donors</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label for="address">Address / Location (Optional but useful):</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="input-group">
+                    <label for="donationType">Type of Donations:</label>
+                    <select id="donationType" name="donationType" required>
+                        <option value="money">Money</option>
+                        <option value="food">Food</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="blood">Blood</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" required>
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('loginPassword', this)"></i>
+                    </div>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p class="switch-form">Don't have an account? <a href="#" onclick="toggleForms('registerForm')">Register</a></p>
+        </div>
+
+        <div class="form-container hidden" id="registerForm">
+            <h2>Register</h2>
+            <form onsubmit="return handleRegister(event)">
+                <div class="input-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label for="address">Address / Location:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="input-group">
+                    <label for="helpType">Type of Help Needed:</label>
+                    <select id="helpType" name="helpType" required>
+                        <option value="food">Food</option>
+                        <option value="money">Money</option>
+                        <option value="medicalAid">Medical Aid</option>
+                        <option value="shelter">Shelter</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="governmentID">Government ID / Proof of Eligibility (If required):</label>
+                    <input type="text" id="governmentID" name="governmentID" required>
+                </div>
+                <div class="input-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="input-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="registerPassword" required>
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('registerPassword', this)"></i>
+                    </div>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p class="switch-form">Already have an account? <a href="#" onclick="toggleForms('loginForm')">Login</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+    
+        const urlParams = new URLSearchParams(window.location.search);
+        const userType = urlParams.get('type');
+
+        if (userType === 'donor') {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+
+        } else {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
